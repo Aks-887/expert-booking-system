@@ -1,0 +1,47 @@
+/* Global effects: cursor glow + page backdrop + subtle noise */
+
+.bb-backdrop {
+  position: relative;
+  overflow: hidden;
+}
+
+.bb-backdrop::before {
+  content: "";
+  position: absolute;
+  inset: -40px;
+  background:
+    radial-gradient(600px circle at 15% 10%, rgba(59,130,246,0.22), transparent 60%),
+    radial-gradient(700px circle at 85% 20%, rgba(147,51,234,0.18), transparent 55%),
+    radial-gradient(700px circle at 40% 90%, rgba(99,102,241,0.14), transparent 60%);
+  filter: blur(16px);
+  opacity: 0.9;
+  pointer-events: none;
+}
+
+.bb-backdrop::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='.35'/%3E%3C/svg%3E");
+  opacity: 0.06;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+}
+
+.bb-backdrop > * {
+  position: relative;
+}
+
+/* Fancy loading dot */
+.bb-dots::after {
+  content: "";
+  animation: bbDots 1.4s steps(3, end) infinite;
+}
+
+@keyframes bbDots {
+  0% { content: ""; }
+  33% { content: "."; }
+  66% { content: ".."; }
+  100% { content: "..."; }
+}
+

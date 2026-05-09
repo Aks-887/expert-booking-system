@@ -1,0 +1,18 @@
+{
+  "name": "Expert Booking System",
+  "version": "1.0.0",
+  "description": "A real-time expert session booking system with React frontend and Node.js backend",
+  "scripts": {
+    "start": "concurrently \"cd backend && npm run dev\" \"cd frontend && npm start\"",
+    "backend": "cd backend && npm run dev",
+    "frontend": "cd frontend && npm start",
+    "install-all": "npm install && cd backend && npm install && cd ../frontend && npm install"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.1"
+  },
+  "dependencies": {
+    "framer-motion": "^12.38.0",
+    "react-hot-toast": "^2.6.0"
+  }
+}
